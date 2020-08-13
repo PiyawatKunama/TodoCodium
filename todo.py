@@ -4,25 +4,60 @@ client = redis.Redis(host='localhost', port=6379)
 
 
 def Nav():
+    if int(client.llen('item2')) != 0:
+        Navstatus2 = "  Have {} data  ".format(client.llen('item2'))
+    else:
+        Navstatus2 = "  Not started  "
+
+    if int(client.llen('item3_1')) != 0:
+        Navstatus3_1 = "  Have {} data  ".format(client.llen('item3_1'))
+    else:
+        Navstatus3_1 = "  Not started  "
+
+    if int(client.llen('item3_2')) != 0:
+        Navstatus3_2 = "  Have {} data  ".format(client.llen('item3_2'))
+    else:
+        Navstatus3_2 = "  Not started  "
+
+    if int(client.llen('item3_3')) != 0:
+        Navstatus3_3 = "  Have {} data  ".format(client.llen('item3_3'))
+    else:
+        Navstatus3_3 = "   Not started "
+    if int(client.llen('item3_4')) != 0:
+        Navstatus3_4 = "  Have {} data  ".format(client.llen('item3_4'))
+    else:
+        Navstatus3_4 = "   Not started "
+    if int(client.llen('item3_5')) != 0:
+        Navstatus3_5 = "  Have {} data  ".format(client.llen('item3_5'))
+    else:
+        Navstatus3_5 = "   Not started "
+    if int(client.llen('item3_6')) != 0:
+        Navstatus3_6 = "  Have {} data  ".format(client.llen('item3_6'))
+    else:
+        Navstatus3_6 = "   Not started "
+    if int(client.llen('item5')) != 0:
+        Navstatus5 = "  Have {} data  ".format(client.llen('item5'))
+    else:
+        Navstatus5 = "   Not started "
     print("+" + "-" * 8 + "+" + "-" * 35 + "+" + "-" * 16 + "+")
     print("|  ITEM  |" + " " * 12 + "DESCRIPTION" + " " * 12 + "|" + "     STATUS     |")
     print("+" + "-" * 8 + "+" + "-" * 35 + "+" + "-" * 16 + "+")
-    print("|   1    |" + " " * 1 + "Showing 1-100 that contains Fizz" + " " * 2 + "|" + "   Not started  |")
+    print("|   1    |" + " " * 1 + "Showing 1-100 that contains Fizz" + " " * 2 + "|" + "    Have data   |")
     print("|        |" + " " * 1 + "Buzz ,FizzBuzz mixed" + " " * 14 + "|" + " " * 16 + "|")
     print("+" + "-" * 8 + "+" + "-" * 35 + "+" + "-" * 16 + "+")
-    print("|   2    |" + " " * 1 + "Consider it's a leap year or not " + " " * 1 + "|" + "   Not started  |")
+    print("|   2    |" + " " * 1 + "Consider it's a leap year or not " + " " * 1 + "|" + Navstatus2 + " |")
     print("+" + "-" * 8 + "+" + "-" * 35 + "+" + "-" * 16 + "+")
-    print("|   3    |" + " " * 1 + "Show * in many ways" + " " * 15 + "|" + "   Not started  |")
-    print("|  3.1   |" + " " * 4 + "Format 1 " + " " * 22 + "|" + "   Not started  |")
-    print("|  3.2   |" + " " * 4 + "Format 2 " + " " * 22 + "|" + "   Not started  |")
-    print("|  3.3   |" + " " * 4 + "Format 3 " + " " * 22 + "|" + "   Not started  |")
-    print("|  3.4   |" + " " * 4 + "Format 4 " + " " * 22 + "|" + "   Not started  |")
-    print("|  3.5   |" + " " * 4 + "Format 5 " + " " * 22 + "|" + "   Not started  |")
-    print("|  3.6   |" + " " * 4 + "Format 6 " + " " * 22 + "|" + "   Not started  |")
+    print("|   3    |" + " " * 1 + "Show * in many ways" + " " * 31 +" |")
+    print("|  3.1   |" + " " * 4 + "Format 1 " + " " * 22 + "|" + Navstatus3_1 + " |")
+    print("|  3.2   |" + " " * 4 + "Format 2 " + " " * 22 + "|" + Navstatus3_2 + " |")
+    print("|  3.3   |" + " " * 4 + "Format 3 " + " " * 22 + "|" + Navstatus3_3 + " |")
+    print("|  3.4   |" + " " * 4 + "Format 4 " + " " * 22 + "|" + Navstatus3_4 + " |")
+    print("|  3.5   |" + " " * 4 + "Format 5 " + " " * 22 + "|" + Navstatus3_5 + " |")
+    print("|  3.6   |" + " " * 4 + "Format 6 " + " " * 22 + "|" + Navstatus3_6 + " |")
     print("+" + "-" * 8 + "+" + "-" * 35 + "+" + "-" * 16 + "+")
-    print("|   4    |" + " " * 1 + "Difference  else and finally " + " " * 5 + "|" + "   Not started  |")
+    print("|   4    |" + " " * 1 + "Difference  else and finally " + " " * 5 + "|" + "    Have data   |")
     print("+" + "-" * 8 + "+" + "-" * 35 + "+" + "-" * 16 + "+")
-    print("|   5    |" + " " * 1 + "Medium 1. finds all prime numbers " + "|" + "   Not started  |")
+    print("|   5    |" + " " * 1 + "Medium 1. finds all prime numbers " + "|" + Navstatus5 + " |")
     print("+" + "-" * 8 + "+" + "-" * 35 + "+" + "-" * 16 + "+")
     print()
     print("***Enter number to select item or entering a blank to end program***")
@@ -677,4 +712,3 @@ def SelectItem(item):
 
 
 SelectItem(input("Please Enter Item number (1,2,4,5 or 3.1-3.6): "))
-
